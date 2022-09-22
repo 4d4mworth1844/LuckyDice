@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+    <script src="ValidateUser.js"></script>
+    <title>Lucky Dice</title>
+    <style>
+        body{
+            background-color: lightgoldenrodyellow;
+        }
+        .cover-img{
+            background-image:url(cover.jpg);
+            min-height: 100px;
+            margin: 5px; 
+        }
+
+        #present{
+            border-radius: 10px;
+            border: 3px solid;
+        }
+
+        #dice-result{
+            border-radius: 10px;
+            border: 3px solid; 
+        }
+
+        #history-table {
+            width: 100%; 
+        }
+    </style>
+</head>
+<body>
+    <!--Web Image-->
+    <div class="cover-img container-fluid">
+    </div>
+
+    <div class="container jumbotron">
+        <!--row2.1-->
+        <div class="row">
+            <div class="col-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h4>Nhập thông tin của bạn</h4><hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label id="lb-username" class="col-form-label">Username</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" name="username" id="inp-username" placeholder="Nhập username" class="form-control">
+                    </div>
+                </div>
+                 <br>
+                <div class="row">
+                    <div class="col-4">
+                        <label id="lb-firstname" class="col-form-label">Firstname</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" name="firstname" id="inp-firstname" placeholder="Nhập firstname" class="form-control">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">
+                        <label id="lb-lastname" class="col-form-label">Lastname</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" name="lastname" id="inp-lastname" placeholder="Nhập lastname" class="form-control">  
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="col-4 text-center">
+                <div class="row">
+                    <div class="col-12">
+                        <button id="btn-throw" class="btn btn-success form-group" onclick="onBtnThrowNewDice()">Ném new dice</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <img id="dice-result" src="LuckyDiceImages/dice.png" alt="dice-img" class="form-group" width="70%">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p id="p-greeting">Chào mừng</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 text-center">
+                <div class="row">
+                    <div class="col-12">
+                        <p id="p-voucher">Voucher: </p><hr>
+                        <p id="p-voucher-id">ID: </p>
+                        <p id="p-voucher-discount">Discount: </p><hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <img id="present-img" src="https://cdn.thesaigontimes.vn/wp-content/uploads/2022/02/casino-1.jpeg" alt="present" id="present" width="80%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center form-group">
+            <div class="col-12">
+                <button id="btn-history" class="btn btn-success" onclick="onBtnDiceHistory()">Dice History</button>
+                <button id="btn-voucher-history" class="btn btn-info" onclick="onBtnVoucherHistory()">Voucher History</button>
+                <button id="btn-present-history" class="btn btn-info" onclick="onBtnPresentHistory()">Present History</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table id="history-table" class="table table-bordered table-striped table-hover w-100" style="visibility: hidden;">
+                    <thead id="table-heading" class="bg-secondary">
+                    </thead>
+                    <tbody id="table-body">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    "use strict";
+    var gInpUsername = $("#inp-username"); 
+    var gInpFirstname = $("#inp-firstname");
+    var gInpLastname = $("#inp-lastname");
+    var gDiceImgResult = $("#dice-result"); 
+    var gPGreeting = $("#p-greeting");
+
+    var gDiceVoucher = $("#p-voucher"); 
+    var gDiceVoucherId = $("#p-voucher-id"); 
+    var gDiceVoucherDiscount = $("#p-voucher-discount");
+    var gImgPresent = $("#present-img"); 
+
+    var gTableHeading = $("#table-heading"); 
+    var gTableBody = $("#table-body"); 
+
+    var gHistoryTable = $("#history-table");
+
+</script>
+</html>
